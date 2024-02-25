@@ -1,19 +1,22 @@
-package com.example.bikerentalapiwithspringboot.model;
+package com.example.apibikerental.model;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "booking", schema = "bike_rental_db")
 public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JoinColumn(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "userID")
     private User user;
 
-    @JoinColumn(name = "bike_id")
+    @ManyToOne
+    @JoinColumn(name = "bike_id", referencedColumnName = "id")
     private Bike bike;
 
     private LocalDate startDate;

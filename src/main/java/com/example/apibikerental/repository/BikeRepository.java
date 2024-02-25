@@ -1,6 +1,6 @@
-package com.example.bikerentalapiwithspringboot.repository;
+package com.example.apibikerental.repository;
 
-import com.example.bikerentalapiwithspringboot.model.Bike;
+import com.example.apibikerental.model.Bike;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

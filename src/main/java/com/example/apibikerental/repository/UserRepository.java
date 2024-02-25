@@ -1,22 +1,10 @@
-package com.example.bikerentalapiwithspringboot.repository;
+package com.example.apibikerental.repository;
 
-import com.example.bikerentalapiwithspringboot.model.User;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.apibikerental.model.User;
 
-import java.util.HashMap;
-import java.util.Map;
+public interface UserRepository extends JpaRepository<User, Long> {
+    User findByEmail(String email);
+    // No need to define 'save' method here, it's inherited from JpaRepository
 
-@Repository
-public class UserRepository {
-
-    private final Map<String, User> users = new HashMap<>();
-
-    public User registerUser(User user) {
-        users.put(user.getUsername(), user);
-        return user;
-    }
-
-    public User findByUsername(String username) {
-        return users.get(username);
-    }
 }

@@ -1,27 +1,26 @@
-package com.example.bikerentalapiwithspringboot.model;
+package com.example.apibikerental.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "bikes", schema = "bike_rental_db")
 public class Bike {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String brand;
     private String model;
-    private int year;
+    private Integer year;
 
     // Constructors, getters, and setters
-    public Bike() {
-    }
-
-    public Bike(String brand, String model, int year) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", year='" + year + '\'' +
+                '}';
     }
 
     public Long getId() {
@@ -48,11 +47,11 @@ public class Bike {
         this.model = model;
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 }

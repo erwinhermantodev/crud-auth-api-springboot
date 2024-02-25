@@ -1,7 +1,7 @@
-package com.example.bikerentalapiwithspringboot.service;
+package com.example.apibikerental.service;
 
-import com.example.bikerentalapiwithspringboot.model.Bike;
-import com.example.bikerentalapiwithspringboot.repository.BikeRepository;
+import com.example.apibikerental.model.Bike;
+import com.example.apibikerental.repository.BikeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,8 +18,8 @@ public class BikeService {
         return bikeRepository.findAll();
     }
 
-    public Optional<Bike> getBikeById(Long id) {
-        return bikeRepository.findById(id);
+    public Bike getBikeById(Long id) {
+        return bikeRepository.findById(id).orElse(null);
     }
 
     public Bike saveBike(Bike bike) {
